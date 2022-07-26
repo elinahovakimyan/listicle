@@ -22,7 +22,9 @@ const Splash = ({ navigation }) => {
                 <Text style={styles.title}>Here!</Text>
             </View>
 
-            <Button onPress={onSignup} title="Sign Up" />
+            <View style={styles.buttonCont}>
+                <Button onPress={onSignup} title="Sign Up" />
+            </View>
 
             <Pressable onPress={onSignin} hitSlop={20}>
                 <Text style={styles.footerText}>Sign In</Text>
