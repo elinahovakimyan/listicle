@@ -5,6 +5,7 @@ import Signup from './src/screens/auth/Signup';
 import Home from './src/screens/app/Home';
 import Favorites from './src/screens/app/Favorites';
 import Profile from './src/screens/app/Profile';
+import Settings from './src/screens/app/Settings';
 import ProductDetails from './src/screens/app/ProductDetails';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import Config from "react-native-config";
@@ -18,17 +19,26 @@ import { Image } from 'react-native';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const ProfileStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+      <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  )
+}
+
 const Tabs = () => (
   <Tab.Navigator 
     screenOptions={({ route }) => ({
-      tabBarIcon: ({ focused, color, size }) => {
+      tabBarIcon: ({ focused }) => {
         let icon;
 
         if (route.name === 'Home') {
           icon = focused
             ? require('./src/assets/tabs/home_active.png')
             : require('./src/assets/tabs/home.png');
-        } else if (route.name === 'Profile') {
+        } else if (route.name === 'ProfileStack') {
           icon = focused
             ? require('./src/assets/tabs/profile_active.png')
             : require('./src/assets/tabs/profile.png');
@@ -48,7 +58,7 @@ const Tabs = () => (
   >
     <Tab.Screen name="Home" component={Home} />
     <Tab.Screen name="Favorites" component={Favorites} />
-    <Tab.Screen name="Profile" component={Profile} />
+    <Tab.Screen name="ProfileStack" component={ProfileStack} />
   </Tab.Navigator>
 )
 
