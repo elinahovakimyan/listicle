@@ -11,7 +11,7 @@ const Checkbox = ({ checked, onCheck }) => {
                 </View>
             ) : null}
         </TouchableOpacity>
-    )
-}
+    );
+};
 
 export default React.memo(Checkbox);
