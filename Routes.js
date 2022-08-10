@@ -16,6 +16,7 @@ import CreateListing from './src/screens/app/CreateListing';
 import MyListings from './src/screens/app/MyListings';
 import { UserContext } from './App';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { addTokenToAxios } from './src/utils/request';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -67,19 +68,34 @@ const Tabs = () => (
 )
 
 const Routes = () => {
+    const [loading, setLoading] = useState(true);
     const { user, setUser } = useContext(UserContext);
 
     useEffect(() => {
         (async () => {
-            const token = await AsyncStorage.getItem('auth_token')
-            setUser({ token })
+            const token = await AsyncStorage.getItem('auth_token');
+            setUser({ token });
+            
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
         })()
     }, [])
+    
+    useEffect(() => {
+        if (user?.token) {
+            addTokenToAxios(user?.token);
+        }
+    }, [user])
 
     const theme = {
         colors: {
             background: colors.white,
         }
+    }
+
+    if (loading) {
+        return null;
     }
 
     return (

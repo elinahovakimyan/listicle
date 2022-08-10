@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: height * 0.45,
+        backgroundColor: colors.lightGrey,
     },
     content: {
         backgroundColor: colors.white,
