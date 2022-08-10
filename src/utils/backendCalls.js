@@ -129,7 +129,6 @@ export const addService = async (data) => {
     try {
         const formData = new FormData();
         const objKeys = Object.keys(data);
-        console.log('objKeys :>> ', objKeys);
         objKeys.forEach(key => {
             formData.append(key, data[key]);
         });
