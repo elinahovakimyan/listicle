@@ -16,7 +16,7 @@ const FavoriteItem = ({ title, price, icon, image, onPress, onIconPress }) => {
                 <Image source={icon || require('../../assets/close.png')} style={styles.icon} />
             </Pressable>
         </Pressable>
-    )
-}
+    );
+};
 
 export default React.memo(FavoriteItem);

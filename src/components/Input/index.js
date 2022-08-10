@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, Text, TextInput, View, Image, Modal, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
+import { Pressable, Text, TextInput, View, Image, Modal, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 
 const Input = ({ label, type, options, isPassword, value, onChangeText, placeholder, style, ...props }) => {
@@ -8,12 +8,12 @@ const Input = ({ label, type, options, isPassword, value, onChangeText, placehol
 
     const onEyePress = () => {
         setIsPasswordVisible(!isPasswordVisible);
-    }
+    };
 
     const onSelect = (opt) => {
         onChangeText(opt);
         setPickerModalVisible(false);
-    }
+    };
 
     return (
         <View style={styles.container}>
@@ -45,7 +45,7 @@ const Input = ({ label, type, options, isPassword, value, onChangeText, placehol
                     <TouchableOpacity activeOpacity={1} style={styles.modalContent}>
                         <Text style={styles.headerTitle}>Select options</Text>
 
-                        {options?.map(opt => {
+                        {options?.map((opt) => {
                             if (!opt?.id) {
                                 return null;
                             }
@@ -54,13 +54,13 @@ const Input = ({ label, type, options, isPassword, value, onChangeText, placehol
 
                             return (
                                 <Text onPress={() => onSelect(opt)} style={[styles.optionText, selected ? styles.selectedOption : {}]} key={opt?.title}>{opt?.title}</Text>
-                            )
+                            );
                         })}
                     </TouchableOpacity>
                 </TouchableOpacity>
             </Modal>
         </View>
-    )
-}
+    );
+};
 
 export default React.memo(Input);

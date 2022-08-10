@@ -5,12 +5,12 @@ import { styles } from './styles';
 
 const Splash = ({ navigation }) => {
     const onSignup = () => {
-        navigation.navigate('Signup')
-    }
+        navigation.navigate('Signup');
+    };
 
     const onSignin = () => {
-        navigation.navigate('Signin')
-    }
+        navigation.navigate('Signin');
+    };
 
     return (
         <View style={styles.container}>
@@ -23,14 +23,14 @@ const Splash = ({ navigation }) => {
             </View>
 
             <View style={styles.buttonCont}>
-                <Button onPress={onSignup} title="Sign Up" />
+                <Button onPress={onSignup} title='Sign Up' />
             </View>
 
             <Pressable onPress={onSignin} hitSlop={10}>
                 <Text style={styles.footerText}>Sign In</Text>
             </Pressable>
         </View>
-    )
-}
+    );
+};
 
 export default React.memo(Splash);

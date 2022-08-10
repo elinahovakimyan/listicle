@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import Config from "react-native-config";
+import Config from 'react-native-config';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Routes from './Routes';
 
@@ -20,7 +20,7 @@ const App = () => {
       offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
       iosClientId: Config.GOOGLE_IOS_CLIENT_ID, // [iOS] if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
     });
-  }, [])
+  }, []);
 
   return (
     <SafeAreaProvider>

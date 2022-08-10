@@ -1,11 +1,11 @@
-import { StyleSheet } from "react-native";
-import { colors } from "../../utils/colors";
+import { StyleSheet } from 'react-native';
+import { colors } from '../../utils/colors';
 
 export const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 16,
         paddingVertical: 12,
-        shadowColor: "#000",
+        shadowColor: '#000',
         shadowOffset: {
             width: 0,
             height: 2,
@@ -28,4 +28,4 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '500',
     }
-})
+});

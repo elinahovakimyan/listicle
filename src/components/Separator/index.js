@@ -9,7 +9,7 @@ const Separator = ({ text }) => {
             <Text style={styles.text}>{text}</Text>
             <View style={styles.line} />
        </View>
-    )
-}
+    );
+};
 
 export default React.memo(Separator);

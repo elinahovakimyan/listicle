@@ -18,28 +18,29 @@ const CreateListing = ({ navigation }) => {
 
     const goBack = () => {
         navigation.goBack();
-    }
+    };
 
     const uploadNewImage = async () => {
         setLoading(true);
         const result = await launchImageLibrary();
 
         if (result?.assets?.length) {
-            setImages(list => ([...list, ...result?.assets]));
+            const assets = result?.assets || [];
+            setImages(list => ([...list, ...assets]));
             setLoading(false);
         }
-    }
+    };
 
     const onDeleteImage = (image) => {
         setImages((list) => {
             const filteredImages = list.filter(img => img?.fileName !== image?.fileName);
             return filteredImages;
         });
-    }
+    };
 
     const onChange = (value, key) => {
-        setValues((val) => ({ ...val, [key]: value }));
-    }
+        setValues(val => ({ ...val, [key]: value }));
+    };
 
     const onSubmit = async () => {
         const img = images?.length ? images[0] : null;
@@ -49,26 +50,26 @@ const CreateListing = ({ navigation }) => {
         };
 
         if (img) {
-            data['image'] = {
+            data.image = {
                 uri: img?.uri,
                 name: img?.fileName,
                 type: img?.type,
-            }
+            };
         }
         const updatedServices = await addService(data);
         setServices(updatedServices);
         // setValues({});
         navigation.navigate('MyListings');
-    }
+    };
 
     return (
         <SafeAreaView>
-            <Header showBack={true} onBackPress={goBack} title="Create a new listing" />
+            <Header showBack={true} onBackPress={goBack} title='Create a new listing' />
 
             <ScrollView style={styles.container}>
                 <KeyboardAvoidingView behavior='position'>
                     <Text style={styles.sectionTitle}>Upload Photos</Text>
-                    
+
                     <View style={styles.imageRow}>
                         <TouchableOpacity disabled={loading} style={styles.uploadContainer} onPress={uploadNewImage}>
                             <View style={styles.uploadCircle}>
@@ -90,16 +91,16 @@ const CreateListing = ({ navigation }) => {
                         ) : null}
                     </View>
 
-                    <Input placeholder="Listing Title" label="Title" value={values.title} onChangeText={(v) => onChange(v, 'title')} />
-                    <Input placeholder="Select the category" label="Category" value={values.category} onChangeText={(v) => onChange(v, 'category')} type="picker" options={categories} />
-                    <Input placeholder="Enter price in USD" label="Price" value={values.price} onChangeText={(v) => onChange(v, 'price')} keyboardType="numeric" />
-                    <Input style={styles.textarea} placeholder="Tell us more..." label="Description" value={values.description} onChangeText={(v) => onChange(v, 'description')} multiline />
+                    <Input placeholder='Listing Title' label='Title' value={values.title} onChangeText={v => onChange(v, 'title')} />
+                    <Input placeholder='Select the category' label='Category' value={values.category} onChangeText={v => onChange(v, 'category')} type='picker' options={categories} />
+                    <Input placeholder='Enter price in USD' label='Price' value={values.price} onChangeText={v => onChange(v, 'price')} keyboardType='numeric' />
+                    <Input style={styles.textarea} placeholder='Tell us more...' label='Description' value={values.description} onChangeText={v => onChange(v, 'description')} multiline />
                 </KeyboardAvoidingView>
 
-                <Button onPress={onSubmit} title="Submit" style={styles.button} />
+                <Button onPress={onSubmit} title='Submit' style={styles.button} />
             </ScrollView>
         </SafeAreaView>
-    )
-}
+    );
+};
 
 export default React.memo(CreateListing);

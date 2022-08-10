@@ -10,7 +10,7 @@ const AuthHeader = ({ title, onBackPress }) => {
             </Pressable>
             <Text style={styles.title}>{title}</Text>
        </View>
-    )
-}
+    );
+};
 
 export default React.memo(AuthHeader);

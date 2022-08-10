@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import { colors } from "../../utils/colors";
+import { StyleSheet } from 'react-native';
+import { colors } from '../../utils/colors';
 
 export const styles = StyleSheet.create({
     container: {
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
         width: 24,
         height: 24,
         marginHorizontal: 16,
-        transform: [{rotate: '90deg'}]
+        transform: [{ rotate: '90deg' }]
     },
     placeholder: {
         paddingHorizontal: 16,
@@ -66,4 +66,4 @@ export const styles = StyleSheet.create({
         color: colors.blue,
         fontWeight: 'bold',
     }
-})
+});

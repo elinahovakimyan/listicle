@@ -20,13 +20,13 @@ const GoogleLogin = () => {
                 // some other error happened
             }
         }
-    }
+    };
 
     return (
         <TouchableOpacity activeOpacity={0.6} onPress={handleGoogleLogin} style={styles.container}>
             <Image style={styles.image} source={require('../../assets/google.png')} />
         </TouchableOpacity>
-    )
-}
+    );
+};
 
 export default React.memo(GoogleLogin);

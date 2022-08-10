@@ -1,5 +1,5 @@
-import { Dimensions, StyleSheet } from "react-native";
-import { colors } from "../../../utils/colors";
+import { Dimensions, StyleSheet } from 'react-native';
+import { colors } from '../../../utils/colors';
 
 const { height } = Dimensions.get('window');
 
@@ -63,4 +63,4 @@ export const styles = StyleSheet.create({
         width: 20,
         height: 20,
     }
-})
+});

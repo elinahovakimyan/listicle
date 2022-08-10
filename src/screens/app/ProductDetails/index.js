@@ -15,22 +15,22 @@ const ProductDetails = ({ route, navigation }) => {
 
     const onBackPress = () => {
         navigation.goBack();
-    }
+    };
 
     const onContact = () => {
         // Make a phone call
-        const phone = '127282827'
+        const phone = '127282827';
         Linking.openURL(`tel:${phone}`);
 
         // Send an Email
-        const email = 'support@mail.com'
-        Linking.openURL(`mailto:${email}`)
-    }
+        const email = 'support@mail.com';
+        Linking.openURL(`mailto:${email}`);
+    };
 
     const onBookmark = async () => {
         const data = await updateService(product?._id, { liked: true });
         setServices(data);
-    }
+    };
 
     return (
         <SafeAreaView style={styles.safe}>
@@ -55,10 +55,10 @@ const ProductDetails = ({ route, navigation }) => {
                 <Pressable onPress={onBookmark} style={styles.bookmarkContainer}>
                     <Image style={styles.bookmarkIcon} source={product?.liked ? require('../../../assets/bookmark_filled.png') : require('../../../assets/bookmark_blue.png')} />
                 </Pressable>
-                <Button onPress={onContact} title="Contact Seller" />
+                <Button onPress={onContact} title='Contact Seller' />
             </View>
         </SafeAreaView>
-    )
-}
+    );
+};
 
 export default React.memo(ProductDetails);

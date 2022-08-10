@@ -11,7 +11,7 @@ const CategoryBox = ({ title, image, onPress, isFirst, isSelected }) => {
             </View>
             <Text style={[styles.title, isSelected ? { color: colors.blue, fontWeight: '500' } : {}]}>{title}</Text>
         </Pressable>
-    )
-}
+    );
+};
 
 export default React.memo(CategoryBox);

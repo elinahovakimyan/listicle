@@ -15,34 +15,34 @@ const Signin = ({ navigation }) => {
     const { setUser } = useContext(UserContext);
 
     const onSignUp = () => {
-        navigation.navigate('Signup')
-    }
+        navigation.navigate('Signup');
+    };
 
     const onBack = () => {
-        navigation.goBack()
-    }
+        navigation.goBack();
+    };
 
     const onChange = (key, value) => {
-        setValues(v => ({ ...v, [key]: value }))
-    }
+        setValues(v => ({ ...v, [key]: value }));
+    };
 
     const onSubmit = async () => {
         const token = await login(values);
 
-        setUser({ token })
-    }
+        setUser({ token });
+    };
 
     return (
         <SafeAreaView>
             <ScrollView style={styles.container}>
-                <AuthHeader onBackPress={onBack} title="Sign In" />
+                <AuthHeader onBackPress={onBack} title='Sign In' />
 
-                <Input value={values.email} onChangeText={(v) => onChange('email', v)} label="E-mail" placeholder="example@gmail.com" />
-                <Input value={values.password} onChangeText={(v) => onChange('password', v)} isPassword label="Password" placeholder="*******" />
+                <Input value={values.email} onChangeText={v => onChange('email', v)} label='E-mail' placeholder='example@gmail.com' />
+                <Input value={values.password} onChangeText={v => onChange('password', v)} isPassword label='Password' placeholder='*******' />
 
-                <Button onPress={onSubmit} style={styles.button} title="Sign In"  />
+                <Button onPress={onSubmit} style={styles.button} title='Sign In' />
 
-                <Separator text="Or sign in with" />
+                <Separator text='Or sign in with' />
 
                 <GoogleLogin />
 
@@ -52,7 +52,7 @@ const Signin = ({ navigation }) => {
                 </Text>
             </ScrollView>
         </SafeAreaView>
-    )
-}
+    );
+};
 
 export default React.memo(Signin);

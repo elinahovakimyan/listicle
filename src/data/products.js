@@ -42,4 +42,4 @@ export const products = [
         category: 4,
         price: '$ 120.00'
     },
-]
+];

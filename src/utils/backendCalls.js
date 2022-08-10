@@ -10,14 +10,14 @@ export const login = async (values) => {
         });
 
         if (response?.data?.token) {
-            await AsyncStorage.setItem('auth_token', response?.data?.token)
+            await AsyncStorage.setItem('auth_token', response?.data?.token);
 
             return response?.data?.token;
         }
     } catch (e) {
         console.log('e login :>> ', e);
     }
-}
+};
 
 export const signup = async (values) => {
     try {
@@ -29,14 +29,14 @@ export const signup = async (values) => {
 
         if (response) {
             const { email, password } = values;
-            const loginResponse = await login({ email, password })
+            const loginResponse = await login({ email, password });
 
             return loginResponse;
         }
     } catch (e) {
         console.log('e signup :>> ', e);
     }
-}
+};
 
 export const getProfile = async () => {
     try {
@@ -51,7 +51,7 @@ export const getProfile = async () => {
     } catch (e) {
         console.log('e profile :>> ', e);
     }
-}
+};
 
 export const updateProfile = async (data) => {
     try {
@@ -62,13 +62,13 @@ export const updateProfile = async (data) => {
         });
 
         if (response) {
-            const profile = await getProfile()
+            const profile = await getProfile();
             return profile;
         }
     } catch (e) {
         console.log('e profile :>> ', e);
     }
-}
+};
 
 
 export const getServices = async () => {
@@ -84,7 +84,7 @@ export const getServices = async () => {
     } catch (e) {
         console.log('e services :>> ', e.response);
     }
-}
+};
 
 export const updateService = async (id, data) => {
     try {
@@ -98,13 +98,13 @@ export const updateService = async (id, data) => {
         });
 
         if (response) {
-            const services = await getServices()
+            const services = await getServices();
             return services;
         }
     } catch (e) {
         console.log('e services :>> ', e.response);
     }
-}
+};
 
 export const deleteService = async (id) => {
     try {
@@ -117,19 +117,19 @@ export const deleteService = async (id) => {
         });
 
         if (response) {
-            const services = await getServices()
+            const services = await getServices();
             return services;
         }
     } catch (e) {
         console.log('e services :>> ', e.response);
     }
-}
+};
 
 export const addService = async (data) => {
     try {
         const formData = new FormData();
         const objKeys = Object.keys(data);
-        objKeys.forEach(key => {
+        objKeys.forEach((key) => {
             formData.append(key, data[key]);
         });
         const response = await request({
@@ -142,10 +142,10 @@ export const addService = async (data) => {
         });
 
         if (response) {
-            const services = await getServices()
+            const services = await getServices();
             return services;
         }
     } catch (e) {
         console.log('e add services :>> ', e.response);
     }
-}
+};

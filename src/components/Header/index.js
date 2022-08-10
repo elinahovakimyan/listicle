@@ -7,8 +7,8 @@ const Header = ({ title, onBackPress, onLogout, showLogout, showSearch, onSearch
     const [showSearchInput, setShowSearchInput] = useState(false);
 
     const onSearchClick = () => {
-        setShowSearchInput(s => !s)
-    }
+        setShowSearchInput(s => !s);
+    };
 
     return (
         <View style={styles.mainContainer}>
@@ -33,10 +33,10 @@ const Header = ({ title, onBackPress, onLogout, showLogout, showSearch, onSearch
             </View>
 
             {showSearchInput ? (
-                <Input onChangeText={onSearch} value={keyword} placeholder="Type your keyword..." />
+                <Input onChangeText={onSearch} value={keyword} placeholder='Type your keyword...' />
             ) : null}
         </View>
-    )
-}
+    );
+};
 
 export default React.memo(Header);

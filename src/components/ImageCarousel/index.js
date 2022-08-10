@@ -12,13 +12,13 @@ const ImageCarousel = ({ images }) => {
         const index = Math.round(horizontalOffset / width);
 
         setActiveIndex(index);
-    }
+    };
 
     const renderImage = ({ item }) => {
         return (
             <Image style={styles.image} source={{ uri: item }} />
-        )
-    }
+        );
+    };
 
     return (
         <View>
@@ -30,7 +30,7 @@ const ImageCarousel = ({ images }) => {
                 ))}
             </View>
         </View>
-    )
-}
+    );
+};
 
 export default React.memo(ImageCarousel);

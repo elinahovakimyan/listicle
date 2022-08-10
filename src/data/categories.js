@@ -28,4 +28,4 @@ export const categories = [
         title: 'Bed',
         image: 'https://szyszkadesign.com/wp-content/uploads/2021/12/categorybeds-1-1200x1200-1.jpg'
     },
-]
+];

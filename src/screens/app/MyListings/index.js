@@ -13,26 +13,26 @@ const MyListings = ({ navigation }) => {
 
     const renderItem = ({ item }) => {
         const onProductPress = () => {
-            navigation.navigate('ProductDetails', { product: item })
-        }
+            navigation.navigate('ProductDetails', { product: item });
+        };
         const onRemove = async () => {
             const updatedServices = await deleteService(item?._id);
             setServices(updatedServices);
-        }
+        };
         return (
             <FavoriteItem onIconPress={onRemove} icon={require('../../../assets/delete.png')} onPress={onProductPress} {...item} />
-        )
-    }
+        );
+    };
 
-    const goBack = () => navigation.goBack()
+    const goBack = () => navigation.goBack();
 
     return (
         <SafeAreaView>
-            <Header title="My Listings" showBack onBackPress={goBack} />
+            <Header title='My Listings' showBack onBackPress={goBack} />
 
-            <FlatList data={myServices} renderItem={renderItem} keyExtractor={(item) => String(item?._id)} />
+            <FlatList data={myServices} renderItem={renderItem} keyExtractor={item => String(item?._id)} />
         </SafeAreaView>
-    )
-}
+    );
+};
 
 export default React.memo(MyListings);
